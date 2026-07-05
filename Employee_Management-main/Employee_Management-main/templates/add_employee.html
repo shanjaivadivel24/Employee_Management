@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 450px;
+            background-color: #ffffff;
+            margin: 50px auto;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .radio-group {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 🔻 Logo here -->
+<div style="text-align: center;">
+        <img src="{{ url_for('static', filename='image/logo1.png') }}" alt="Qmax Logo" width="150">
+    </div>
+        <h2>Add New Employee</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <label>Employee ID:</label>
+            <input type="text" name="emp_id" required>
+
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Phone:</label>
+            <input type="text" name="phone" required>
+
+            <label>Department:</label>
+            <input type="text" name="department" required>
+
+            <label>Salary:</label>
+            <input type="number" name="salary" required>
+
+            <label>Upload Image:</label>
+            <input type="file" name="image" accept="image/*">
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female"> Female
+                <input type="radio" name="gender" value="Other"> Other
+            </div>
+
+            <label>Status:</label>
+            <div class="radio-group">
+                <input type="radio" name="status" value="Active" required> Active
+                <input type="radio" name="status" value="Inactive"> Inactive
+            </div>
+
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <a class="back-link" href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
